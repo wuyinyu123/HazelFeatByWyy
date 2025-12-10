@@ -29,6 +29,8 @@ namespace Hazel
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
+
+		
 		
 		ImGui_ImplOpenGL3_Init("#version 410");
 
@@ -117,6 +119,7 @@ namespace Hazel
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 
 		float time = (float)glfwGetTime();
@@ -125,8 +128,7 @@ namespace Hazel
 
 		ImGui_ImplOpenGL3_NewFrame();
 		
-		//wyy
-		//ImGui_ImplGlfw_NewFrame();
+		
 
 		ImGui::NewFrame();
 

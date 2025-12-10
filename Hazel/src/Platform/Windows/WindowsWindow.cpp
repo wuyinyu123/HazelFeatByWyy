@@ -39,7 +39,7 @@ namespace Hazel
 		mData.Width = props.width;
 		mData.Height = props.height;
 
-		HZ_CORE_INFO("Creating window {0} {{1}, {2}}", props.title, props.width, props.height);
+		HZ_CORE_INFO("Creating window {0} {{{1}, {2}}}", props.title, props.width, props.height);
 
 		if (!sGLFWInitialized)
 		{
@@ -103,6 +103,14 @@ namespace Hazel
 						break;
 					}
 				}
+			});
+
+		//打字回调
+		glfwSetCharCallback(mWindow, [](GLFWwindow* window, unsigned int keycode)
+			{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				KeyTypedEvent e(keycode);
+				data.EventCallback(e);
 			});
 
 		glfwSetMouseButtonCallback(mWindow, [](GLFWwindow* window, int button, int action, int mods)

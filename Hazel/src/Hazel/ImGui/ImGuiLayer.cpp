@@ -1,11 +1,10 @@
 #include "hzpch.h"
 #include "ImGuiLayer.h"
 #include "imgui.h"
-#include "Platform/OpenGL/imgui_impl_glfw.h"
+
 #include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
 #include "GLFW/glfw3.h"
 
-//#include "Platform/Windows/WindowsWindow.h"
 #include "Hazel/Application.h"
 
 namespace Hazel

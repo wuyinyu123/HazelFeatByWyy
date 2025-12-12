@@ -27,15 +27,14 @@ namespace Hazel
 			return mData.Height;
 		}
 
-		//wyy
-		//inline GLFWwindow* GetGLFWWindow() const override
-		//{
-		//	return mWindow;
-		//}
-
 		inline void SetEventCallback(const EventCallbackFn& callback) override
 		{
 			mData.EventCallback = callback;
+		}
+
+		inline void* GetNativeWindow() const
+		{
+			return mWindow;
 		}
 
 		void SetVSync(bool enabled) override;

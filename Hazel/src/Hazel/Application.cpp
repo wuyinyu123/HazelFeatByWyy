@@ -4,6 +4,8 @@
 #include "Event/Event.h"
 #include "Application.h"
 
+#include "Input.h"
+
 #include <glad/glad.h>
 
 namespace Hazel
@@ -73,6 +75,9 @@ namespace Hazel
 
 			for (Layer* layer : mLayerStack)
 				layer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			HZ_CORE_TRACE("{0}, {1}", x, y);
 
 			mWindow->OnUpdate();
 		}

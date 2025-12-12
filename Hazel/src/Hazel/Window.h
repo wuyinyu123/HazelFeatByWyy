@@ -3,7 +3,7 @@
 #include "hzpch.h"
 #include "Hazel/Core.h"
 #include "Hazel/Event/Event.h"
-//#include "GLFW/glfw3.h"
+
 
 namespace Hazel
 {
@@ -39,10 +39,9 @@ namespace Hazel
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
-
-		//wyy
-		//virtual GLFWwindow* GetGLFWWindow() const = 0;
 		
+		//根据不同平台获取不同的指针
+		virtual void* GetNativeWindow() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 	};

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\source\\repos\\Hazel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\DELL\\source\\repos\\Hazel\\premake5.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:premake5.lua||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Core.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Core.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Core.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-11T10:42:41.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "premake5.lua",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\premake5.lua",
-              "RelativeDocumentMoniker": "premake5.lua",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\premake5.lua",
-              "RelativeToolTip": "premake5.lua",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-11T10:33:32.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ImGuiLayer.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAC8AAABYAAAAAAAAAA==",
+              "Title": "Application.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
+              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Application.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
+              "RelativeToolTip": "Hazel\\src\\Hazel\\Application.cpp",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAD8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-10T10:51:38.532Z",
+              "WhenOpened": "2025-12-12T12:20:18.132Z",
               "EditorCaption": ""
             }
           ]

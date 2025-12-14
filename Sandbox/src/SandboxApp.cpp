@@ -11,7 +11,10 @@ public:
 
 	void OnUpdate() override
 	{
-		//HZ_INFO("ExampleLayer::Update");
+		if (Hazel::Input::IsKeyPressed(HZ_KEY_W))
+		{
+			HZ_INFO("W");
+		}
 	}
 
 	void OnEvent(Hazel::Event& event) override

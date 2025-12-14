@@ -93,6 +93,10 @@ namespace Hazel
 
 	bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.AddKeyEvent(ImGuiKey_A, 
+		glfwGetKey((GLFWwindow*)(Application::Get().GetWindow().GetNativeWindow()), 
+		e.GetKeyCode()) == GLFW_PRESS);
 		return false;
 	}
 

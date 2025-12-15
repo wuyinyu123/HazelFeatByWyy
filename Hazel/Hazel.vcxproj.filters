@@ -1394,5 +1394,8 @@
     <ClCompile Include="src\hzpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="ImGuiBuild.cpp">
+      <Filter>src\Hazel\ImGui</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

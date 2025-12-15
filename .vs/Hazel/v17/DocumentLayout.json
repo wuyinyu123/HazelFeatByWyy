@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\source\\repos\\Hazel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\ImGuiBuild.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\ImGuiBuild.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ImGuiBuild.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\ImGuiBuild.cpp",
-              "RelativeDocumentMoniker": "Hazel\\ImGuiBuild.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\ImGuiBuild.cpp",
-              "RelativeToolTip": "Hazel\\ImGuiBuild.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Title": "ImGuiLayer.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
+              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
+              "RelativeToolTip": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-15T11:56:27.486Z",
+              "WhenOpened": "2025-12-15T14:40:51.136Z",
               "EditorCaption": ""
             },
             {
@@ -49,7 +49,7 @@
               "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Application.cpp",
               "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
               "RelativeToolTip": "Hazel\\src\\Hazel\\Application.cpp",
-              "ViewState": "AgIAABQAAAAAAAAAAAAmwEMAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-12T12:20:18.132Z",
               "EditorCaption": ""

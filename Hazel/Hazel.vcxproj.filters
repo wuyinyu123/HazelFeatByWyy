@@ -1358,6 +1358,9 @@
     <ClCompile Include="src\Hazel\Application.cpp">
       <Filter>src\Hazel</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hazel\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Hazel\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hazel\ImGui\ImGuiLayer.cpp">
       <Filter>src\Hazel\ImGui</Filter>
     </ClCompile>
@@ -1379,6 +1382,5 @@
     <ClCompile Include="src\hzpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hazel\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

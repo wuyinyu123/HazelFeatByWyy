@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\source\\repos\\Hazel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}|Sandbox\\Sandbox.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}|Sandbox\\Sandbox.vcxproj|solutionrelative:Sandbox\\src\\SandboxApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,27 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ImGuiLayer.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\ImGui\\ImGuiLayer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Title": "SandboxApp.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp",
+              "RelativeDocumentMoniker": "Sandbox\\src\\SandboxApp.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp",
+              "RelativeToolTip": "Sandbox\\src\\SandboxApp.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-15T14:40:51.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Application.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Application.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Application.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-12T12:20:18.132Z",
+              "WhenOpened": "2025-12-21T09:20:48.307Z",
               "EditorCaption": ""
             }
           ]

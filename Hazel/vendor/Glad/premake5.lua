@@ -18,12 +18,11 @@ project "Glad"
 	}
 
 	filter "system:windows"
-		buildoptions { "-std=c11", "-lgdi32"}
 		systemversion "latest"
-		staticruntime "On"
+		staticruntime "on"
 
 	filter { "system:window", "configurations:Release" }
-		buildoptions "/MT"
+		--buildoptions "/MT"
 	
 
 	

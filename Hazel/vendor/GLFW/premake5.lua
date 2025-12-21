@@ -26,9 +26,8 @@ project "GLFW"
 	}
 
 	filter "system:windows"
-		buildoptions { "-std=c11", "-lgdi32"}
 		systemversion "latest"
-		staticruntime "On"
+		staticruntime "on"
 
 		files
 		{
@@ -49,10 +48,10 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
-		--links { "gdi32", "user32", "kernel32", "shell32" }
+		
 
 	filter { "system:window", "configurations:Release" }
-		buildoptions "/MT"
+		--buildoptions "/MT"
 	
 
 	

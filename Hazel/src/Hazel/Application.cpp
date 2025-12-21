@@ -20,12 +20,12 @@ namespace Hazel
 		HZ_CORE_ASSERT(!sInstance, "Application already exists!");
 		sInstance = this;
 
-		//初始化窗口并设置事件回调
+		//鍒濆鍖栫獥鍙ｅ苟璁剧疆浜嬩欢鍥炶皟
 		mWindow = std::unique_ptr<Window>(Window::Create());
 		mWindow->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-		unsigned int id;
-		glGenBuffers(1, &id);
+		mImGuiLayer = new ImGuiLayer();
+		PushOverlay(mImGuiLayer);
 	}
 
 	Application::~Application()
@@ -76,7 +76,10 @@ namespace Hazel
 			for (Layer* layer : mLayerStack)
 				layer->OnUpdate();
 
-			
+			mImGuiLayer->Begin();
+			for (Layer* layer : mLayerStack)
+				layer->OnImGuiRender();
+			mImGuiLayer->End();
 
 			mWindow->OnUpdate();
 		}

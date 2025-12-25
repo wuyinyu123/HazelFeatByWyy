@@ -5,9 +5,6 @@
 #include "Hazel/Event/KeyEvent.h"
 #include "Hazel/Event/MounseEvent.h"
 
-#include <glad/glad.h>
-
-
 
 namespace Hazel
 {
@@ -40,7 +37,7 @@ namespace Hazel
 		mData.Height = props.height;
 
 		HZ_CORE_INFO("Creating window {0} {{{1}, {2}}}", props.title, props.width, props.height);
-
+		
 		if (!sGLFWInitialized)
 		{
 			int success = glfwInit();
@@ -50,9 +47,11 @@ namespace Hazel
 		}
 
 		mWindow = glfwCreateWindow((int)props.width, (int)props.height, mData.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(mWindow); //创建上下文环境
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); //初始化Glad
-		HZ_CORE_ASSERT(status, "Failed to initailize Glad!");
+
+		mContext = new OpenGLContext(mWindow);
+		mContext->Init();
+
+		
 
 		glfwSetWindowUserPointer(mWindow, &mData);
 		SetVSync(true);
@@ -160,8 +159,7 @@ namespace Hazel
 	{
 		//处理事件
 		glfwPollEvents();
-		//交换前后缓冲区
-		glfwSwapBuffers(mWindow);
+		mContext->SwapBuffers();
 	}
 
 	//设置垂直同步

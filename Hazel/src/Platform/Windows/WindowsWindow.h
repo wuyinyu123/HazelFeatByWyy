@@ -2,6 +2,9 @@
 
 #include "Hazel/Window.h"
 
+#include "Hazel/Renderer/GraphicsContext.h"
+#include "Platform/OpenGL/OpenGLContext.h"
+
 #include "GLFW/glfw3.h"
 
 
@@ -43,8 +46,10 @@ namespace Hazel
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
+
 	private:
 		GLFWwindow* mWindow;
+		GraphicsContext* mContext;
 
 		struct WindowData
 		{

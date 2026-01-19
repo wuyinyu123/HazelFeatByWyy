@@ -7,6 +7,7 @@
 #include "Input.h"
 
 #include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Hazel
 {
@@ -14,6 +15,9 @@ namespace Hazel
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::sInstance = nullptr;
+
+
+	
 
 	Application::Application()  
 	{
@@ -29,32 +33,30 @@ namespace Hazel
 
 		float vertices[] = {
 			// 位置              // 颜色
-			-0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // 左下角，红色
-			0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // 右下角，绿色
-			0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f  // 顶部，蓝色
+			0.0f, 0.0f, 0.0f,  0.8f, 0.2f, 0.8f, // 左下角，红色
+			1.0f, 0.0f, 0.0f,  0.2f, 0.3f, 0.8f, // 右下角，绿色
+			0.5f,  1.0f, 0.0f,  0.8f, 0.8f, 0.2f  // 顶部，蓝色
 		};
 
 		uint32_t indices[] = {0, 1, 2};
 
-		glGenVertexArrays(1, &mVertexArray); // 生成一个 VAO
-		glBindVertexArray(mVertexArray);     // 绑定它，之后的操作都会记录到这个 VAO 中
-
+		mVertexArray = std::make_shared<OpenGLVertexArray>();
+		
 		mVertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-		//glGenBuffers(1, &mVertexBuffer); // 生成一个 VBO
-		//glBindBuffer(GL_ARRAY_BUFFER, mVertexBuffer); // 绑定到 GL_ARRAY_BUFFER 目标
-		//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		// 解析位置属性 (对应顶点着色器中的 location = 0)
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0); // 启用 location 0
-		// 解析颜色属性 (对应顶点着色器中的 location = 1)
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1); // 启用 location 1
-
+		
+		//设置顶点布局
+		{
+			BufferLayout layout = {
+			{"position", ShaderDataType::Float3},
+			{"color", ShaderDataType::Float3}
+			};
+			mVertexBuffer->SetLayout(layout);
+		}
+		mVertexArray->AddVertexBuffer(mVertexBuffer);
+		
 		mIndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-		//glGenBuffers(1, &mIndexBuffer);
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mIndexBuffer);
-		//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		mVertexArray->AddIndexBuffer(mIndexBuffer);
+		
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -65,18 +67,18 @@ namespace Hazel
 			void main()
 			{
 				color = aColor;
-				glPosition = vec4(aPosition, 1.0);
+				gl_Position = vec4(aPosition, 1.0);
 			}
 		)";
 
 		std::string fragmentSrc = R"(
 			#version 330 core
-			layout(location = 0) out vec4 fragColor;
+			layout(location = 0) out vec4 fColor;
 			in vec3 color;
 		
 			void main()
 			{
-				fragColor = vec4(color, 1.0);
+				fColor = vec4(color, 1.0);
 			}
 		)";
 
@@ -105,7 +107,6 @@ namespace Hazel
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
 
-		
 		//HZ_CORE_TRACE("{0}", e);
 
 		for (auto it = mLayerStack.end(); it != mLayerStack.begin();)
@@ -125,11 +126,11 @@ namespace Hazel
 
 		while (mRunning)
 		{
-			glClearColor(1, 0, 1, 1);
+			glClearColor(0, 0, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			mShader->Bind();
-			glBindVertexArray(mVertexArray);
+			mVertexArray->Bind();
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
 			for (Layer* layer : mLayerStack)

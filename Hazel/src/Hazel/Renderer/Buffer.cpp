@@ -8,7 +8,7 @@ namespace Hazel
 	{
 		switch (Renderer::GetAPI())
 		{
-		case Hazel::RendererAPI::None:
+		case Hazel::RendererAPI::None: 
 			HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
 			return nullptr;
 

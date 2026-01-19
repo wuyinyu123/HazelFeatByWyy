@@ -7,21 +7,50 @@ namespace Hazel
 {
 	Shader::Shader(const std::string& vertexSrc, const std::string& fragmentSrc) : mRendererID(0)
 	{
-		unsigned int vertexShaderID = glCreateShader(1);
+		//创建顶点着色器
+		unsigned int vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 		const char* vertex = vertexSrc.c_str();
 		glShaderSource(vertexShaderID, 1, &vertex, nullptr);
 		glCompileShader(vertexShaderID);
 
-		unsigned int fragmentShaderID = glCreateShader(1);
+		// 检查顶点着色器编译错误
+		int success;
+		char infoLog[512];
+		glGetShaderiv(vertexShaderID, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(vertexShaderID, 512, nullptr, infoLog);
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
+
+		//创建片段着色器
+		unsigned int fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 		const char* fragment = fragmentSrc.c_str();
 		glShaderSource(fragmentShaderID, 1, &fragment, nullptr);
 		glCompileShader(fragmentShaderID);
+
+		// 检查片段着色器编译错误
+		glGetShaderiv(fragmentShaderID, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(fragmentShaderID, 512, nullptr, infoLog);
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		}
 
 		mRendererID = glCreateProgram();
 		unsigned int program = mRendererID;
 		glAttachShader(program, vertexShaderID);
 		glAttachShader(program, fragmentShaderID);
 		glLinkProgram(program);
+
+		// 检查链接错误
+		glGetProgramiv(mRendererID, GL_LINK_STATUS, &success);
+		if (!success)
+		{
+			glGetProgramInfoLog(mRendererID, 512, nullptr, infoLog);
+			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+		}
+
 		glValidateProgram(program);
 
 		glDeleteShader(vertexShaderID);

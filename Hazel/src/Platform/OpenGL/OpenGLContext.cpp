@@ -13,14 +13,19 @@ namespace Hazel
 
 	void OpenGLContext::Init()
 	{
-		glfwMakeContextCurrent(mWindowHandle); //´´½¨ÉÏÏÂÎÄ»·¾³
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); //³õÊ¼»¯Glad
+		//HZ_CORE_INFO("OpenGL Info: ");
+		//HZ_CORE_INFO("Vendor: {0}", (const char*)glGetString(GL_VENDOR));
+		//HZ_CORE_INFO("Renderer: {0}", (const char*)glGetString(GL_RENDERER));
+		//HZ_CORE_INFO("Version: {0}", (const char*)glGetString(GL_VERSION));
+
+		glfwMakeContextCurrent(mWindowHandle); //åˆ›å»ºä¸Šä¸‹æ–‡ç¯å¢ƒ
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); //åˆå§‹åŒ–Glad
 		HZ_CORE_ASSERT(status, "Failed to initailize Glad!");
 	}
 
 	void OpenGLContext::SwapBuffers()
 	{
-		//½»»»Ç°ºó»º³åÇø
+		//äº¤æ¢å‰åç¼“å†²åŒº
 		glfwSwapBuffers(mWindowHandle);
 	}
 }

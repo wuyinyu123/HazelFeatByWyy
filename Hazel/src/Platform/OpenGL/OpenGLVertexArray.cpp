@@ -21,11 +21,19 @@ namespace Hazel
 		case ShaderDataType::Mat4: return GL_FLOAT;
 		case ShaderDataType::Bool: return GL_BOOL;
 		}
+
+		HZ_CORE_ASSERT(false, "Unknown ShaderDataType!");
+		return 0;
 	}
 
 	OpenGLVertexArray::OpenGLVertexArray() : mRendererID(0)
 	{
 		glCreateVertexArrays(1, &mRendererID);
+	}
+
+	OpenGLVertexArray::~OpenGLVertexArray()
+	{
+		glDeleteVertexArrays(1, &mRendererID);
 	}
 
 	void OpenGLVertexArray::Bind() const
@@ -48,7 +56,7 @@ namespace Hazel
 		BufferLayout layout = vertexBuffer->GetLayout();
 		uint32_t index = 0;
 
-		//将多个顶点属性组装成一个布局
+		//灏嗗涓《鐐瑰睘鎬х粍瑁呮垚涓�涓竷灞�
 		for (const auto& element : layout)
 		{
 			glEnableVertexAttribArray(index);

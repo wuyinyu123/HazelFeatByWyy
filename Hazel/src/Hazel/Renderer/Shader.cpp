@@ -2,18 +2,20 @@
 #include "Shader.h"
 
 #include "glad/glad.h"
+#include<gtc/type_ptr.hpp>
 
 namespace Hazel
 {
+	//åˆ›å»ºç€è‰²å™¨ç¨‹åº
 	Shader::Shader(const std::string& vertexSrc, const std::string& fragmentSrc) : mRendererID(0)
 	{
-		//´´½¨¶¥µã×ÅÉ«Æ÷
+		//åˆ›å»ºé¡¶ç‚¹ç€è‰²å™¨
 		unsigned int vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 		const char* vertex = vertexSrc.c_str();
 		glShaderSource(vertexShaderID, 1, &vertex, nullptr);
 		glCompileShader(vertexShaderID);
 
-		// ¼ì²é¶¥µã×ÅÉ«Æ÷±àÒë´íÎó
+		// æ£€æŸ¥é¡¶ç‚¹ç€è‰²å™¨ç¼–è¯‘é”™è¯¯
 		int success;
 		char infoLog[512];
 		glGetShaderiv(vertexShaderID, GL_COMPILE_STATUS, &success);
@@ -23,13 +25,13 @@ namespace Hazel
 			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
 		}
 
-		//´´½¨Æ¬¶Î×ÅÉ«Æ÷
+		//åˆ›å»ºç‰‡æ®µç€è‰²å™¨
 		unsigned int fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 		const char* fragment = fragmentSrc.c_str();
 		glShaderSource(fragmentShaderID, 1, &fragment, nullptr);
 		glCompileShader(fragmentShaderID);
 
-		// ¼ì²éÆ¬¶Î×ÅÉ«Æ÷±àÒë´íÎó
+		// æ£€æŸ¥ç‰‡æ®µç€è‰²å™¨ç¼–è¯‘é”™è¯¯
 		glGetShaderiv(fragmentShaderID, GL_COMPILE_STATUS, &success);
 		if (!success)
 		{
@@ -43,7 +45,7 @@ namespace Hazel
 		glAttachShader(program, fragmentShaderID);
 		glLinkProgram(program);
 
-		// ¼ì²éÁ´½Ó´íÎó
+		// æ£€æŸ¥é“¾æ¥é”™è¯¯
 		glGetProgramiv(mRendererID, GL_LINK_STATUS, &success);
 		if (!success)
 		{
@@ -70,6 +72,13 @@ namespace Hazel
 	void Shader::Unbind() const
 	{
 		glUseProgram(0);
+	}
+
+	void Shader::UploadUniformMat4(const std::string& name, const glm::mat4& matrix) const
+	{
+		GLint location = glGetUniformLocation(mRendererID, name.c_str());
+
+		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 }
 

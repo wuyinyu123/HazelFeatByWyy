@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 	HZ_CORE_WARN("Initialized Log!");
 	HZ_INFO("Hello! Var = {}", 5);
 
-	auto app = Hazel::CreateApplication(); //
+	auto app = Hazel::CreateApplication();
 	app->Run();
 	delete app;
 }

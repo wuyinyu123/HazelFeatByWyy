@@ -1,9 +1,13 @@
 #pragma once
 #include <memory>
-#include "Hazel/Renderer/Buffer.h"
+#include "Buffer.h"
 
 namespace Hazel
 {
+	// 前向声明
+	class VertexBuffer;
+	class IndexBuffer;
+
 	class VertexArray
 	{
 	public:

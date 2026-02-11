@@ -9,6 +9,9 @@
 #include "Hazel/Renderer/Shader.h"
 #include "Hazel/Renderer/Buffer.h"
 #include "Hazel/Renderer/VertexArray.h"
+#include "Hazel/Renderer/Camera.h"
+#include "../../vendor/glm/glm.hpp"
+#include "Keycode.h" //wyy
 
 namespace Hazel
 {
@@ -45,14 +48,12 @@ namespace Hazel
 	private:
 		static Application* sInstance;
 
-		//unsigned int mVertexArray;
-		//unsigned int mVertexBuffer;
-
 		std::shared_ptr<Shader> mShader;
 		std::shared_ptr<VertexArray> mVertexArray;
 		std::shared_ptr<VertexBuffer> mVertexBuffer;
 		std::shared_ptr<IndexBuffer> mIndexBuffer;
-		//unsigned int mIndexBuffer;
+
+		std::shared_ptr<OrthographicCamera> mCamera;
 	};
 	
 	Application* CreateApplication();

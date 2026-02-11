@@ -1,4 +1,5 @@
 #pragma once
+#include "../../vendor/glm/glm.hpp"
 
 namespace Hazel
 {
@@ -14,6 +15,9 @@ namespace Hazel
 
 	private:
 		uint32_t mRendererID;
+
+	public:
+		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix) const;
 	};
 }
 

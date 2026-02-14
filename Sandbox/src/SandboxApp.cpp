@@ -1,10 +1,11 @@
 #include <Hazel.h>
 #include "../vendor/imgui/imgui.h"
+#include "../vendor/glm/gtc/matrix_transform.hpp"
 
 class ExampleLayer : public Hazel::Layer
 {
 public:
-	ExampleLayer() : Layer("Example")
+	ExampleLayer() : Layer("Example"), mPosition(0.0f)
 	{
 		//顶点数据
 		float vertices[] = {
@@ -43,12 +44,13 @@ public:
 			layout(location = 0) in vec3 aPosition;
 			layout(location = 1) in vec3 aColor;
 			uniform mat4 viewProjection;
+			uniform mat4 transform;
 			out vec3 color;
 		
 			void main()
 			{
 				color = aColor;
-				gl_Position = viewProjection * vec4(aPosition, 1.0);
+				gl_Position = viewProjection * transform * vec4(aPosition, 1.0);
 			}
 		)";
 
@@ -66,26 +68,36 @@ public:
 		mShader.reset(new Hazel::Shader(vertexSrc, fragmentSrc));
 	}
 
-	virtual void OnUpdate() override
+	virtual void OnUpdate(Hazel::Timestep ts) override
 	{
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_LEFT))
-			mCameraPosition.x -= mCameraMoveSpeed;
+			mCameraPosition.x -= mCameraMoveSpeed * ts;
 		else if(Hazel::Input::IsKeyPressed(HZ_KEY_RIGHT))
-			mCameraPosition.x += mCameraMoveSpeed;
+			mCameraPosition.x += mCameraMoveSpeed * ts;
 
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_UP))
-			mCameraPosition.y += mCameraMoveSpeed;
+			mCameraPosition.y += mCameraMoveSpeed * ts;
 		else if (Hazel::Input::IsKeyPressed(HZ_KEY_DOWN))
-			mCameraPosition.y -= mCameraMoveSpeed;
+			mCameraPosition.y -= mCameraMoveSpeed * ts;
 
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_A))
 		{
-			mCameraRotation += mCameraRotationSpeed;
+			mCameraRotation += mCameraRotationSpeed * ts;
 		}
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_D))
 		{
-			mCameraRotation -= mCameraRotationSpeed;
+			mCameraRotation -= mCameraRotationSpeed * ts;
 		}
+
+		if (Hazel::Input::IsKeyPressed(HZ_KEY_J))
+			mPosition.x -= 1.0f * ts;
+		else if (Hazel::Input::IsKeyPressed(HZ_KEY_L))
+			mPosition.x += 1.0f * ts;
+
+		if (Hazel::Input::IsKeyPressed(HZ_KEY_I))
+			mPosition.y += 1.0f * ts;
+		else if (Hazel::Input::IsKeyPressed(HZ_KEY_K))
+			mPosition.y -= 1.0f * ts;
 		
 		mCamera->SetPosition(mCameraPosition);
 		mCamera->SetRotation(mCameraRotation);
@@ -96,7 +108,9 @@ public:
 
 		Hazel::Renderer::BeginScene(mCamera);
 
-		Hazel::Renderer::Submit(mVertexArray, mShader);
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), mPosition);
+
+		Hazel::Renderer::Submit(mVertexArray, mShader, transform);
 
 		Hazel::Renderer::EndScene();
 	}
@@ -120,9 +134,11 @@ private:
 	std::shared_ptr<Hazel::OrthographicCamera> mCamera;
 
 	glm::vec3 mCameraPosition = { 0.0f, 0.0f, 0.0f };
-	float mCameraMoveSpeed = 0.05f;
+	float mCameraMoveSpeed = 1.0f;
 	float mCameraRotation = 0.0f;
-	float mCameraRotationSpeed = 2.0f;
+	float mCameraRotationSpeed = 90.0f;
+
+	glm::vec3 mPosition;
 };
 
 

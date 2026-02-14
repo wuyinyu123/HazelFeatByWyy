@@ -11,7 +11,8 @@
 #include "Hazel/Renderer/VertexArray.h"
 #include "Hazel/Renderer/Camera.h"
 #include "../../vendor/glm/glm.hpp"
-#include "Keycode.h" //wyy
+#include "../vendor/GLFW/include/GLFW/glfw3.h"
+#include "Hazel/Core/Timestep.h"
 
 namespace Hazel
 {
@@ -54,6 +55,7 @@ namespace Hazel
 		std::shared_ptr<IndexBuffer> mIndexBuffer;
 
 		std::shared_ptr<OrthographicCamera> mCamera;
+		float mLastFrameTime = 0.0f;
 	};
 	
 	Application* CreateApplication();

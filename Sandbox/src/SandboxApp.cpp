@@ -1,6 +1,8 @@
 #include <Hazel.h>
-#include "../vendor/imgui/imgui.h"
-#include "../vendor/glm/gtc/matrix_transform.hpp"
+#include <../vendor/imgui/imgui.h>
+#include <../vendor/glm/gtc/matrix_transform.hpp>
+#include <../vendor/glm/gtc/type_ptr.hpp>
+#include "Platform/OpenGL/OpenGLShader.h"
 
 class ExampleLayer : public Hazel::Layer
 {
@@ -10,9 +12,9 @@ public:
 		//顶点数据
 		float vertices[] = {
 			// 位置              // 颜色
-			0.0f, 0.0f, 0.0f,  0.8f, 0.2f, 0.8f, // 左下角，红色
-			1.0f, 0.0f, 0.0f,  0.2f, 0.3f, 0.8f, // 右下角，绿色
-			0.5f,  1.0f, 0.0f,  0.8f, 0.8f, 0.2f  // 顶部，蓝色
+			0.0f, 0.0f, 0.0f,  0.8f, 0.2f, 0.8f, // 左下角
+			1.0f, 0.0f, 0.0f,  0.2f, 0.3f, 0.8f, // 右下角
+			0.5f,  1.0f, 0.0f,  0.8f, 0.8f, 0.2f  // 顶部
 		};
 
 		//索引数据
@@ -21,7 +23,7 @@ public:
 		mVertexArray = std::make_shared<Hazel::OpenGLVertexArray>();
 		mVertexBuffer.reset(Hazel::VertexBuffer::Create(vertices, sizeof(vertices)));
 
-		//正交相机
+		//正交相机，初始化视图矩阵和投影矩阵
 		mCamera = std::make_shared<Hazel::OrthographicCamera>(-1.6f, 1.6f, -0.9f, 0.9f);
 		
 
@@ -45,11 +47,9 @@ public:
 			layout(location = 1) in vec3 aColor;
 			uniform mat4 viewProjection;
 			uniform mat4 transform;
-			out vec3 color;
-		
+			
 			void main()
 			{
-				color = aColor;
 				gl_Position = viewProjection * transform * vec4(aPosition, 1.0);
 			}
 		)";
@@ -57,7 +57,7 @@ public:
 		std::string fragmentSrc = R"(
 			#version 330 core
 			layout(location = 0) out vec4 fColor;
-			in vec3 color;
+			uniform vec3 color;
 		
 			void main()
 			{
@@ -65,11 +65,15 @@ public:
 			}
 		)";
 
-		mShader.reset(new Hazel::Shader(vertexSrc, fragmentSrc));
+		mShader.reset(Hazel::Shader::Create(vertexSrc, fragmentSrc));
+
+		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->Bind();
+		
 	}
 
 	virtual void OnUpdate(Hazel::Timestep ts) override
 	{
+		//相机平移输入
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_LEFT))
 			mCameraPosition.x -= mCameraMoveSpeed * ts;
 		else if(Hazel::Input::IsKeyPressed(HZ_KEY_RIGHT))
@@ -80,6 +84,7 @@ public:
 		else if (Hazel::Input::IsKeyPressed(HZ_KEY_DOWN))
 			mCameraPosition.y -= mCameraMoveSpeed * ts;
 
+		//相机旋转输入
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_A))
 		{
 			mCameraRotation += mCameraRotationSpeed * ts;
@@ -89,16 +94,17 @@ public:
 			mCameraRotation -= mCameraRotationSpeed * ts;
 		}
 
+		//模型平移输入
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_J))
 			mPosition.x -= 1.0f * ts;
 		else if (Hazel::Input::IsKeyPressed(HZ_KEY_L))
 			mPosition.x += 1.0f * ts;
-
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_I))
 			mPosition.y += 1.0f * ts;
 		else if (Hazel::Input::IsKeyPressed(HZ_KEY_K))
 			mPosition.y -= 1.0f * ts;
 		
+		//设置相机的平移和旋转矩阵
 		mCamera->SetPosition(mCameraPosition);
 		mCamera->SetRotation(mCameraRotation);
 			
@@ -108,8 +114,12 @@ public:
 
 		Hazel::Renderer::BeginScene(mCamera);
 
+		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformFloat3("color", color);
+
+		//初始化模型矩阵
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), mPosition);
 
+		//设置pvm矩阵并渲染
 		Hazel::Renderer::Submit(mVertexArray, mShader, transform);
 
 		Hazel::Renderer::EndScene();
@@ -117,7 +127,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Color", glm::value_ptr(color));
+		ImGui::End();
 	}
 
 	virtual void OnEvent(Hazel::Event& event) override
@@ -139,6 +151,7 @@ private:
 	float mCameraRotationSpeed = 90.0f;
 
 	glm::vec3 mPosition;
+	glm::vec3 color = { 1.0f, 1.0f, 1.0f };
 };
 
 

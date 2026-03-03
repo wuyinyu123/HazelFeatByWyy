@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\source\\repos\\Hazel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}|Sandbox\\Sandbox.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}|Sandbox\\Sandbox.vcxproj|solutionrelative:Sandbox\\src\\SandboxApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Layer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Layer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Renderer\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core\\Timestep.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Core\\Timestep.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Renderer\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Renderer\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99294D0D-053E-75BE-CEBF-181E3A9371EF}|Hazel\\Hazel.vcxproj|solutionrelative:Hazel\\src\\Hazel\\Renderer\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,106 +50,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Layer.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.cpp",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Layer.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.cpp",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Layer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Renderer.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.cpp",
+              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Renderer\\Renderer.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.cpp",
+              "RelativeToolTip": "Hazel\\src\\Hazel\\Renderer\\Renderer.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-14T10:57:10.703Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Layer.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Layer.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Layer.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Layer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-14T10:56:49.693Z",
+              "WhenOpened": "2026-03-03T08:16:19.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Application.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Application.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Application.h",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADoAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-14T10:48:16.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Application.cpp",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Application.cpp",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Application.cpp",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Application.cpp",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAAE4AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-14T10:46:12.453Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Timestep.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core\\Timestep.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Core\\Timestep.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Core\\Timestep.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Core\\Timestep.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-14T10:40:19.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "SandboxApp.cpp",
               "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp",
               "RelativeDocumentMoniker": "Sandbox\\src\\SandboxApp.cpp",
               "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Sandbox\\src\\SandboxApp.cpp",
               "RelativeToolTip": "Sandbox\\src\\SandboxApp.cpp",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAuwG8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAuwDwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-14T10:30:55.989Z",
+              "WhenOpened": "2026-03-03T08:13:02.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Hazel.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "OpenGLShader.h",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h",
+              "RelativeDocumentMoniker": "Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h",
+              "RelativeToolTip": "Hazel\\src\\Platform\\OpenGL\\OpenGLShader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-14T10:44:40.719Z",
+              "WhenOpened": "2026-03-03T07:47:24.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Renderer.h",
-              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.h",
-              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Renderer\\Renderer.h",
-              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Renderer.h",
-              "RelativeToolTip": "Hazel\\src\\Hazel\\Renderer\\Renderer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAADAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OpenGLShader.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp",
+              "RelativeDocumentMoniker": "Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp",
+              "RelativeToolTip": "Hazel\\src\\Platform\\OpenGL\\OpenGLShader.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-03T07:31:58.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shader.cpp",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.cpp",
+              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Renderer\\Shader.cpp",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.cpp",
+              "RelativeToolTip": "Hazel\\src\\Hazel\\Renderer\\Shader.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-03T06:02:25.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Shader.h",
+              "DocumentMoniker": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.h",
+              "RelativeDocumentMoniker": "Hazel\\src\\Hazel\\Renderer\\Shader.h",
+              "ToolTip": "C:\\Users\\DELL\\source\\repos\\Hazel\\Hazel\\src\\Hazel\\Renderer\\Shader.h",
+              "RelativeToolTip": "Hazel\\src\\Hazel\\Renderer\\Shader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-14T10:27:01.921Z",
+              "WhenOpened": "2026-03-03T06:01:23.249Z",
               "EditorCaption": ""
             }
           ]

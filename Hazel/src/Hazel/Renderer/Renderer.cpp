@@ -6,7 +6,7 @@ namespace Hazel
 {
     Renderer::SceneData* Renderer::mSceneData = new Renderer::SceneData();
 
-    void Renderer::BeginScene(const std::shared_ptr<OrthographicCamera>& camera)
+    void Renderer::BeginScene(const Ref<OrthographicCamera>& camera)
     {
         mSceneData->ViewProjectionMatrix = camera->GetViewProjectionMatrix();
     }
@@ -16,8 +16,8 @@ namespace Hazel
 
     }
 
-    //绑定着色器与顶点数组后调用DrawCall
-    void Renderer::Submit(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<Shader>& shader, const glm::mat4 transform)
+    //缁戝畾鐫�鑹插櫒涓庨《鐐规暟缁勫悗璋冪敤DrawCall
+    void Renderer::Submit(const Ref<VertexArray>& vertexArray, const Ref<Shader>& shader, const glm::mat4 transform)
     {
         shader->Bind();
         std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("viewProjection", mSceneData->ViewProjectionMatrix);

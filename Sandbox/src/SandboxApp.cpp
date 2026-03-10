@@ -11,14 +11,16 @@ public:
 	{
 		//顶点数据
 		float vertices[] = {
-			// 位置              // 颜色
-			0.0f, 0.0f, 0.0f,  0.8f, 0.2f, 0.8f, // 左下角
-			1.0f, 0.0f, 0.0f,  0.2f, 0.3f, 0.8f, // 右下角
-			0.5f,  1.0f, 0.0f,  0.8f, 0.8f, 0.2f  // 顶部
+			// 位置              // 纹理坐标
+			-0.5f, -0.5f, 0.0f,  0.0f, 0.0f, // 左下角
+			0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // 右下角
+			-0.5f, 0.5f, 0.0f,   0.0f, 1.0f, //左上角
+			0.5f, 0.5f, 0.0f,    1.0f, 1.0f  //右上角
 		};
 
 		//索引数据
-		uint32_t indices[] = { 0, 1, 2 };
+		uint32_t indices[] = { 0, 1, 2,
+							   2, 3, 1 };
 
 		mVertexArray = std::make_shared<Hazel::OpenGLVertexArray>();
 		mVertexBuffer.reset(Hazel::VertexBuffer::Create(vertices, sizeof(vertices)));
@@ -31,7 +33,7 @@ public:
 		{
 			Hazel::BufferLayout layout = {
 			{"position", Hazel::ShaderDataType::Float3},
-			{"color", Hazel::ShaderDataType::Float3}
+			{"texCoord", Hazel::ShaderDataType::Float2}
 			};
 			mVertexBuffer->SetLayout(layout);
 		}
@@ -44,12 +46,14 @@ public:
 		std::string vertexSrc = R"(
 			#version 330 core
 			layout(location = 0) in vec3 aPosition;
-			layout(location = 1) in vec3 aColor;
+			layout(location = 1) in vec2 aTexCoord;
+			out vec2 TexCoord;
 			uniform mat4 viewProjection;
 			uniform mat4 transform;
 			
 			void main()
 			{
+				TexCoord = aTexCoord;
 				gl_Position = viewProjection * transform * vec4(aPosition, 1.0);
 			}
 		)";
@@ -58,17 +62,22 @@ public:
 			#version 330 core
 			layout(location = 0) out vec4 fColor;
 			uniform vec3 color;
+			uniform sampler2D ourTexture;
+			in vec2 TexCoord;
 		
 			void main()
 			{
-				fColor = vec4(color, 1.0);
+				fColor = texture(ourTexture, TexCoord);
 			}
 		)";
 
 		mShader.reset(Hazel::Shader::Create(vertexSrc, fragmentSrc));
 
 		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->Bind();
+		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformInt("ourTexture", 0);
 		
+		mTexture = Hazel::Texture2D::Create("assets/textures/myTexture.png");
+		mTexture->Bind();
 	}
 
 	virtual void OnUpdate(Hazel::Timestep ts) override
@@ -114,10 +123,11 @@ public:
 
 		Hazel::Renderer::BeginScene(mCamera);
 
-		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformFloat3("color", color);
+		//std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformFloat3("color", color);
 
 		//初始化模型矩阵
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), mPosition);
+		transform = glm::scale(transform, glm::vec3(2.0f, 2.0f, 1.0f));
 
 		//设置pvm矩阵并渲染
 		Hazel::Renderer::Submit(mVertexArray, mShader, transform);
@@ -138,12 +148,13 @@ public:
 	}
 
 private:
-	std::shared_ptr<Hazel::Shader> mShader;
-	std::shared_ptr<Hazel::VertexArray> mVertexArray;
-	std::shared_ptr<Hazel::VertexBuffer> mVertexBuffer;
-	std::shared_ptr<Hazel::IndexBuffer> mIndexBuffer;
+	Hazel::Ref<Hazel::Shader> mShader;
+	Hazel::Ref<Hazel::VertexArray> mVertexArray;
+	Hazel::Ref<Hazel::VertexBuffer> mVertexBuffer;
+	Hazel::Ref<Hazel::IndexBuffer> mIndexBuffer;
+	Hazel::Ref<Hazel::Texture2D> mTexture;
 
-	std::shared_ptr<Hazel::OrthographicCamera> mCamera;
+	Hazel::Ref<Hazel::OrthographicCamera> mCamera;
 
 	glm::vec3 mCameraPosition = { 0.0f, 0.0f, 0.0f };
 	float mCameraMoveSpeed = 1.0f;

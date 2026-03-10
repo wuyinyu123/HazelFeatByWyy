@@ -49,12 +49,12 @@ namespace Hazel
 	private:
 		static Application* sInstance;
 
-		std::shared_ptr<Shader> mShader;
-		std::shared_ptr<VertexArray> mVertexArray;
-		std::shared_ptr<VertexBuffer> mVertexBuffer;
-		std::shared_ptr<IndexBuffer> mIndexBuffer;
-
-		std::shared_ptr<OrthographicCamera> mCamera;
+		//Ref<Shader> mShader;
+		//Ref<VertexArray> mVertexArray;
+		//Ref<VertexBuffer> mVertexBuffer;
+		//Ref<IndexBuffer> mIndexBuffer;
+		//
+		//Ref<OrthographicCamera> mCamera;
 		float mLastFrameTime = 0.0f;
 	};
 	

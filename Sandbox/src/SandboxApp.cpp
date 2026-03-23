@@ -2,6 +2,7 @@
 #include <../vendor/imgui/imgui.h>
 #include <../vendor/glm/gtc/matrix_transform.hpp>
 #include <../vendor/glm/gtc/type_ptr.hpp>
+//#include <glad/glad.h>
 #include "Platform/OpenGL/OpenGLShader.h"
 
 class ExampleLayer : public Hazel::Layer
@@ -71,15 +72,19 @@ public:
 			}
 		)";
 
-		mShader.reset(Hazel::Shader::Create(vertexSrc, fragmentSrc));
-
-		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->Bind();
-		std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformInt("ourTexture", 0);
+		//mShader.reset(Hazel::Shader::Create(vertexSrc, fragmentSrc));
+		//mShader = Hazel::Shader::Create("assets/shaders/Texture.glsl");
+		//std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->Bind();
+		//std::dynamic_pointer_cast<Hazel::OpenGLShader>(mShader)->UploadUniformInt("ourTexture", 0);
+		
+		auto textureShader = mShaderLibrary.Load("assets/shaders/Texture.glsl");
 		
 		mTexture = Hazel::Texture2D::Create("assets/textures/myTexture.png");
-		mTexture->Bind();
+		mTexture->Bind(0);
 	}
 
+
+	//循环
 	virtual void OnUpdate(Hazel::Timestep ts) override
 	{
 		//相机平移输入
@@ -130,7 +135,8 @@ public:
 		transform = glm::scale(transform, glm::vec3(2.0f, 2.0f, 1.0f));
 
 		//设置pvm矩阵并渲染
-		Hazel::Renderer::Submit(mVertexArray, mShader, transform);
+		auto textureShader = mShaderLibrary.Get("Texture");
+		Hazel::Renderer::Submit(mVertexArray, textureShader, transform);
 
 		Hazel::Renderer::EndScene();
 	}
@@ -148,6 +154,7 @@ public:
 	}
 
 private:
+	Hazel::ShaderLibrary mShaderLibrary;
 	Hazel::Ref<Hazel::Shader> mShader;
 	Hazel::Ref<Hazel::VertexArray> mVertexArray;
 	Hazel::Ref<Hazel::VertexBuffer> mVertexBuffer;

@@ -24,6 +24,8 @@ namespace Hazel
 		mWindow = std::unique_ptr<Window>(Window::Create());
 		mWindow->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		Renderer::Init();
+
 		mImGuiLayer = new ImGuiLayer();
 		PushOverlay(mImGuiLayer);
 	}
@@ -70,9 +72,13 @@ namespace Hazel
 
 		while (mRunning)
 		{	
+			float time = (float)glfwGetTime();
+			Timestep timestep = time - mLastFrameTime;
+			mLastFrameTime = time;
+
 			//每个层的更新逻辑
 			for (Layer* layer : mLayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 
 			//imGui渲染
 			mImGuiLayer->Begin();

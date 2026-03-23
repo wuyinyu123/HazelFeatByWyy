@@ -7,8 +7,6 @@
 
 namespace Hazel
 {
-	
-
 	class Renderer
 	{
 	public:
@@ -18,17 +16,14 @@ namespace Hazel
 		}
 
 	public:
-		static void BeginScene(const std::shared_ptr<OrthographicCamera>& camera);
+		static void Init();
+		static void BeginScene(const Ref<OrthographicCamera>& camera);
 		static void EndScene();
-		static void Submit(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<Shader>& shader);
+		static void Submit(const Ref<VertexArray>& vertexArray, const Ref<Shader>& shader, const glm::mat4 transform = 1.0f);
 		
-
-
 		struct SceneData
 		{
-			
-			glm::mat4 ViewProjectionMatrix = glm::mat4(1.0f);
-			
+			glm::mat4 ViewProjectionMatrix = glm::mat4(1.0f);	
 		};
 		static SceneData* mSceneData;
 	};

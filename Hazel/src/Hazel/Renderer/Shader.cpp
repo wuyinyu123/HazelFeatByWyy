@@ -1,85 +1,79 @@
 #include "hzpch.h"
 #include "Shader.h"
 
-#include "glad/glad.h"
-#include<gtc/type_ptr.hpp>
+#include "Renderer.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Hazel
 {
-	//åˆ›å»ºç€è‰²å™¨ç¨‹åº
-	Shader::Shader(const std::string& vertexSrc, const std::string& fragmentSrc) : mRendererID(0)
+	Ref<Shader> Shader::Create(const std::string& path)
 	{
-		//åˆ›å»ºé¡¶ç‚¹ç€è‰²å™¨
-		unsigned int vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-		const char* vertex = vertexSrc.c_str();
-		glShaderSource(vertexShaderID, 1, &vertex, nullptr);
-		glCompileShader(vertexShaderID);
-
-		// æ£€æŸ¥é¡¶ç‚¹ç€è‰²å™¨ç¼–è¯‘é”™è¯¯
-		int success;
-		char infoLog[512];
-		glGetShaderiv(vertexShaderID, GL_COMPILE_STATUS, &success);
-		if (!success)
+		switch (Renderer::GetAPI())
 		{
-			glGetShaderInfoLog(vertexShaderID, 512, nullptr, infoLog);
-			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		case Hazel::RendererAPI::API::None:
+			HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
+			return nullptr;
+
+		case Hazel::RendererAPI::API::OpenGL:
+			return std::make_shared<OpenGLShader>(path);
 		}
 
-		//åˆ›å»ºç‰‡æ®µç€è‰²å™¨
-		unsigned int fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-		const char* fragment = fragmentSrc.c_str();
-		glShaderSource(fragmentShaderID, 1, &fragment, nullptr);
-		glCompileShader(fragmentShaderID);
+		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
+		return nullptr;
+	}
 
-		// æ£€æŸ¥ç‰‡æ®µç€è‰²å™¨ç¼–è¯‘é”™è¯¯
-		glGetShaderiv(fragmentShaderID, GL_COMPILE_STATUS, &success);
-		if (!success)
+	Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
+	{
+		switch (Renderer::GetAPI())
 		{
-			glGetShaderInfoLog(fragmentShaderID, 512, nullptr, infoLog);
-			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+		case Hazel::RendererAPI::API::None:
+			HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
+			return nullptr;
+
+		case Hazel::RendererAPI::API::OpenGL:
+			return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
-		mRendererID = glCreateProgram();
-		unsigned int program = mRendererID;
-		glAttachShader(program, vertexShaderID);
-		glAttachShader(program, fragmentShaderID);
-		glLinkProgram(program);
-
-		// æ£€æŸ¥é“¾æ¥é”™è¯¯
-		glGetProgramiv(mRendererID, GL_LINK_STATUS, &success);
-		if (!success)
-		{
-			glGetProgramInfoLog(mRendererID, 512, nullptr, infoLog);
-			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-		}
-
-		glValidateProgram(program);
-
-		glDeleteShader(vertexShaderID);
-		glDeleteShader(fragmentShaderID);
+		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
+		return nullptr;
 	}
 
-	Shader::~Shader()
+	void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
 	{
-		glDeleteProgram(mRendererID);
+		HZ_CORE_ASSERT(!Exists(name), "Shader already exists!");
+		mShaders[name] = shader;
 	}
 
-	void Shader::Bind() const
+	void ShaderLibrary::Add(const Ref<Shader>& shader)
 	{
-		glUseProgram(mRendererID);
+		auto& name = shader->GetName();
+		Add(name, shader);
 	}
 
-	void Shader::Unbind() const
+	//¸ù¾İÎÄ¼şÂ·¾¶Îª×ÅÉ«Æ÷ÃüÃû²¢Ìí¼Ó
+	Ref<Shader> ShaderLibrary::Load(const std::string& filepath)
 	{
-		glUseProgram(0);
+		auto shader = Shader::Create(filepath);
+		Add(shader);
+		return shader;
 	}
 
-	void Shader::UploadUniformMat4(const std::string& name, const glm::mat4& matrix) const
+	//×Ô¶¨Òå×ÅÉ«Æ÷Ãû²¢Ìí¼Ó
+	Ref<Shader> ShaderLibrary::Load(const std::string& name, const std::string& filepath)
 	{
-		GLint location = glGetUniformLocation(mRendererID, name.c_str());
+		auto shader = Shader::Create(filepath);
+		Add(name, shader);
+		return shader;
+	}
 
-		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+	Ref<Shader> ShaderLibrary::Get(const std::string& name)
+	{
+		HZ_CORE_ASSERT(Exists(name), "Shader not found!");
+		return mShaders[name];
+	}
+
+	bool ShaderLibrary::Exists(const std::string& name) const
+	{
+		return mShaders.find(name) != mShaders.end();
 	}
 }
-
-
